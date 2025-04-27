@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
-        android:name="com.example.pianotutorial.features.ui.ForgotPasswordFragment"
+        android:name="com.example.pianotutorial.features.authetication.fragments.ForgotPasswordFragment"
         android:label="ForgotPasswordFragment" >
         <action
             android:id="@+id/action_forgotPasswordFragment_to_loginFragment"
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.pianotutorial.features.ui.RegisterFragment"
+        android:name="com.example.pianotutorial.features.authetication.fragments.RegisterFragment"
         android:label="RegisterFragment" >
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"

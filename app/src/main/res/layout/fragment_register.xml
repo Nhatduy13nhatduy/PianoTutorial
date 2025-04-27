@@ -8,7 +8,11 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.pianotutorial.features.ui.viewmodel.RegisterViewModel" />
+            type="com.example.pianotutorial.features.authetication.viewmodels.RegisterViewModel" />
+        <variable
+            name="eventHandler"
+            type="com.example.pianotutorial.features.authetication.eventhandlers.RegisterEventHandler" />
+
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -36,7 +40,7 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_back"
-                android:onClick="@{() -> viewModel.onBackClicked()}"/>
+                android:onClick="@{eventHandler::navigateBack}"/>
 
         </FrameLayout>
 
@@ -68,7 +72,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/text_container"
             app:layout_constraintTop_toBottomOf="@+id/dangkivaoviano"
-            app:layout_constraintVertical_bias="0.492">
+            app:layout_constraintVertical_bias="0.49">
 
             <FrameLayout
                 android:id="@+id/loginwith"
@@ -195,7 +199,8 @@
                     android:singleLine="true"
                     android:text="@string/have_account"
                     android:textColor="@color/white"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:onClick="@{eventHandler::navigateToLogin}"/>
             </FrameLayout>
 
             <FrameLayout
@@ -213,6 +218,7 @@
                     android:fontFamily="@font/inter"
                     android:includeFontPadding="false"
                     android:maxLines="1"
+                    android:onClick="@{eventHandler::navigateToLogin}"
                     android:singleLine="true"
                     android:text="@string/lbl_dangky"
                     android:textColor="@color/white"

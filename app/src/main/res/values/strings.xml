@@ -30,6 +30,14 @@
     <string name="lbl_checkemail">Kiểm tra email của bạn</string>
     <string name="lbl_communities">Cộng đồng</string>
 
+    <string name="lbl_editprofile">Chỉnh sửa thông tin cá nhân</string>
+    <string name="lbl_confirm">Xác nhận</string>
+
+    <string name="playrandom">Chơi nhạc ngẫu nhiên</string>
+
+    <string name="List_sheetmusic">Danh sách các bản nhạc</string>
+
+
     <string name="login_with">Đăng nhập với</string>
     <string name="input_pass">Nhập mật khẩu</string>
     <string name="warning_newpass">Hãy chắc chắn rằng mật khẩu mới khác với mật khẩu trước đây</string>

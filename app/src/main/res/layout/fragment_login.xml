@@ -8,290 +8,298 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.pianotutorial.features.ui.viewmodel.LoginViewModel" />
-    </data>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#4AC776"
-            android:clipToPadding="false">
+            type="com.example.pianotutorial.features.authetication.viewmodels.LoginViewModel" />
+        <variable
+            name="eventhandler"
+            type="com.example.pianotutorial.features.authetication.eventhandlers.LoginEventHandler" />
 
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#4AC776"
+        android:clipToPadding="false">
+
+
+        <FrameLayout
+            android:id="@+id/loginwith"
+            android:layout_width="321dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dangnhapvaoviano">
 
             <FrameLayout
-                android:id="@+id/loginwith"
-                android:layout_width="321dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="32dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dangnhapvaoviano">
+                android:id="@+id/container_fb"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_gravity="start"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/container_frame3">
 
-                <FrameLayout
-                    android:id="@+id/container_fb"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="start"
-                    android:layout_marginTop="50dp"
-                    android:background="@drawable/container_frame3">
-
-                    <ImageView
-                        android:id="@+id/img_facebook"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_gravity="top|start"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="5dp"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/ic_facebook" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/container_apple"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="200dp"
-                    android:layout_marginTop="50dp"
-                    android:background="@drawable/container_frame3">
-
-                    <ImageView
-                        android:id="@+id/img_apple"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="top|end"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/ic_apple" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/container_gg"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="top|start"
-                    android:layout_marginStart="111dp"
-                    android:layout_marginTop="50dp"
-                    android:background="@drawable/container_frame3">
-
-                    <ImageView
-                        android:id="@+id/img_google"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="top|start"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/ic_google" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/container_login_with"
+                <ImageView
+                    android:id="@+id/img_facebook"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="35dp"
                     android:layout_gravity="top|start"
-                    android:layout_marginTop="20dp">
-
-                    <TextView
-                        android:id="@+id/txt_login_with"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="59dp"
-                        android:layout_marginTop="-0.75dp"
-                        android:layout_marginEnd="56dp"
-                        android:layout_marginBottom="-0.75dp"
-                        android:fontFamily="@font/inter"
-                        android:gravity="center_horizontal|center_vertical"
-                        android:includeFontPadding="false"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:text="@string/login_with"
-                        android:textColor="#FFFFFFFF"
-                        android:textSize="15sp" />
-
-
-                    <View
-                        android:id="@+id/container_line1"
-                        android:layout_width="96dp"
-                        android:layout_height="1dp"
-                        android:layout_gravity="start"
-                        android:layout_marginTop="10dp"
-                        android:background="#FF72777A"
-                        android:scaleType="centerInside" />
-
-                    <View
-                        android:id="@+id/container_line2"
-                        android:layout_width="96dp"
-                        android:layout_height="1dp"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="10dp"
-                        android:background="#FF72777A"
-                        android:scaleType="centerInside" />
-                </FrameLayout>
-
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_facebook" />
             </FrameLayout>
 
-            <TextView
-                android:id="@+id/dangnhapvaoviano"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|center"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="192dp"
-                android:fontFamily="@font/inter"
-                android:gravity="center_vertical"
-                android:singleLine="true"
-                android:text="@string/lbl_logininto"
-                android:textColor="@color/black"
-                android:textSize="35sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <FrameLayout
+                android:id="@+id/container_apple"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/container_frame3">
 
+                <ImageView
+                    android:id="@+id/img_apple"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_apple" />
+            </FrameLayout>
 
-            <LinearLayout
-                android:id="@+id/linearLayout3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toStartOf="@+id/loginwith"
-                app:layout_constraintHorizontal_bias="0.465"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dangnhapvaoviano">
+            <FrameLayout
+                android:id="@+id/container_gg"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_gravity="top|start"
+                android:layout_marginStart="111dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/container_frame3">
 
-                <FrameLayout
-                    android:id="@+id/container_email"
-                    android:layout_width="335dp"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:id="@+id/img_google"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="top|start"
-                    android:layout_marginBottom="15dp"
-                    android:clipToPadding="false"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_google" />
+            </FrameLayout>
 
-
-                    <EditText
-                        android:id="@+id/enter_email"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/nhap_email"
-                        android:fontFamily="@font/inter"
-                        android:gravity="start|center_vertical"
-                        android:hint="Email"
-                        android:includeFontPadding="false"
-                        android:maxLines="1"
-                        android:paddingLeft="13dp"
-                        android:paddingRight="13dp"
-                        android:singleLine="true"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/hintTextColor"
-                        android:textSize="20sp" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/container_nhappass"
-                    android:layout_width="335dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|start"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/container_email">
-
-                    <EditText
-                        android:id="@+id/enter_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:background="@drawable/nhap_email"
-                        android:fontFamily="@font/inter"
-                        android:gravity="start|center_vertical"
-                        android:hint="@string/input_pass"
-                        android:inputType="textPassword"
-                        android:paddingLeft="13dp"
-                        android:paddingRight="13dp"
-                        android:textColor="@color/gray_900_01"
-                        android:textColorHint="@color/hintTextColor"
-                        android:textSize="20sp" />
-
-                </FrameLayout>
+            <FrameLayout
+                android:id="@+id/container_login_with"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_marginTop="20dp">
 
                 <TextView
-                    android:id="@+id/forgot_password"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|end"
-                    android:layout_marginTop="13dp"
-                    android:fontFamily="@font/inter"
-                    android:gravity="end|center_vertical"
-                    android:includeFontPadding="false"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:text="@string/forgot_password"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"
-                    android:onClick="@{() -> viewModel.onForgotPasswordClicked()}"/>
-
-                <Button
-                    android:id="@+id/login_btn"
-                    android:layout_width="335dp"
-                    android:layout_height="60dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_gravity="start"
-                    android:background="@drawable/login_button"
+                    android:id="@+id/txt_login_with"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="59dp"
+                    android:layout_marginTop="-0.75dp"
+                    android:layout_marginEnd="56dp"
+                    android:layout_marginBottom="-0.75dp"
                     android:fontFamily="@font/inter"
                     android:gravity="center_horizontal|center_vertical"
                     android:includeFontPadding="false"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:text="@string/lbl_dangnhap"
-                    android:textColor="@color/white"
+                    android:text="@string/login_with"
+                    android:textColor="#FFFFFFFF"
                     android:textSize="15sp" />
 
-            </LinearLayout>
+
+                <View
+                    android:id="@+id/container_line1"
+                    android:layout_width="96dp"
+                    android:layout_height="1dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:background="#FF72777A"
+                    android:scaleType="centerInside" />
+
+                <View
+                    android:id="@+id/container_line2"
+                    android:layout_width="96dp"
+                    android:layout_height="1dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="10dp"
+                    android:background="#FF72777A"
+                    android:scaleType="centerInside" />
+            </FrameLayout>
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/dangnhapvaoviano"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="192dp"
+            android:fontFamily="@font/inter"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="@string/lbl_logininto"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-            <ImageView
-                android:id="@+id/back_btn"
-                style="@style/btnSolidRounded"
-                android:layout_width="45.5dp"
-                android:layout_height="45.5dp"
-                android:layout_marginTop="30dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_back"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-                app:layout_constraintEnd_toStartOf="@+id/dangnhapvaoviano"
-                app:layout_constraintHorizontal_bias="0.261"
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/loginwith"
+            app:layout_constraintHorizontal_bias="0.465"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dangnhapvaoviano">
+
+            <FrameLayout
+                android:id="@+id/container_email"
+                android:layout_width="335dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_marginBottom="15dp"
+                android:clipToPadding="false"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                android:onClick="@{() -> viewModel.onBackClicked()}"/>
+                app:layout_constraintTop_toTopOf="parent">
 
 
+                <EditText
+                    android:id="@+id/enter_email"
+                    style="@style/Widget.AppCompat.AutoCompleteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/nhap_email"
+                    android:fontFamily="@font/inter"
+                    android:gravity="start|center_vertical"
+                    android:hint="Email"
+                    android:includeFontPadding="false"
+                    android:inputType="text|textAutoComplete|textCapCharacters|textCapSentences|textCapWords"
+                    android:maxLines="1"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="13dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hintTextColor"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/container_nhappass"
+                android:layout_width="335dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/container_email">
+
+                <EditText
+                    android:id="@+id/enter_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@drawable/nhap_email"
+                    android:fontFamily="@font/inter"
+                    android:gravity="start|center_vertical"
+                    android:hint="@string/input_pass"
+                    android:inputType="textPassword"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="13dp"
+                    android:textColor="@color/gray_900_01"
+                    android:textColorHint="@color/hintTextColor"
+                    android:textSize="20sp" />
+
+            </FrameLayout>
 
             <TextView
-                android:id="@+id/txt_chuacotk"
+                android:id="@+id/forgot_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="56dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginTop="13dp"
                 android:fontFamily="@font/inter"
+                android:gravity="end|center_vertical"
                 android:includeFontPadding="false"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:text="@string/not_have_account"
+                android:text="@string/forgot_password"
                 android:textColor="@color/white"
                 android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/loginwith"
-                app:layout_constraintVertical_bias="0.123"
-                android:onClick="@{() -> viewModel.onRegisterLinkClicked()}"/>
-            <FrameLayout
-                android:id="@+id/fragment_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="visible"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:onClick="@{eventhandler::navigateToForgotPassword}"/>
+
+            <Button
+                android:id="@+id/login_btn"
+                android:layout_width="335dp"
+                android:layout_height="60dp"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/login_button"
+                android:fontFamily="@font/inter"
+                android:gravity="center_horizontal|center_vertical"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/lbl_dangnhap"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:onClick="@{eventhandler::navigateToNavigationBar}"/>
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/back_btn"
+            style="@style/btnSolidRounded"
+            android:layout_width="45.5dp"
+            android:layout_height="45.5dp"
+            android:layout_marginTop="30dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+            app:layout_constraintEnd_toStartOf="@+id/dangnhapvaoviano"
+            app:layout_constraintHorizontal_bias="0.261"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            android:onClick="@{eventhandler::navigateBack}"/>
+
+
+
+        <TextView
+            android:id="@+id/txt_chuacotk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="56dp"
+            android:fontFamily="@font/inter"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@string/not_have_account"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginwith"
+            app:layout_constraintVertical_bias="0.123"
+            android:onClick="@{eventhandler::navigateToRegister}"/>
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

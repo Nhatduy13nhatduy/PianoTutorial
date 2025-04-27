@@ -1,44 +1,37 @@
-package com.example.pianotutorial.features.ui;
+package com.example.pianotutorial.features.authetication.fragments;
 
-import android.content.Intent;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavHost;
-import androidx.navigation.fragment.NavHostFragment;
 
 
 import com.example.pianotutorial.R;
 import com.example.pianotutorial.databinding.FragmentLoginBinding;
-import com.example.pianotutorial.features.navigation_bar.activities.NavigationBarActivity;
-import com.example.pianotutorial.features.ui.viewmodel.LoginViewModel;
+import com.example.pianotutorial.features.authetication.viewmodels.AuthViewModel;
+import com.example.pianotutorial.features.authetication.viewmodels.LoginViewModel;
+import com.example.pianotutorial.features.authetication.eventhandlers.LoginEventHandler;
 
 public class LoginFragment extends Fragment {
     private LoginViewModel viewModel;
+    private LoginEventHandler eventHandler;
     private FragmentLoginBinding Binding;
-//
+    private AuthViewModel authViewModel;
+    //
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,@Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         Binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false);
         viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
-
+        authViewModel = new ViewModelProvider(requireActivity()).get(AuthViewModel.class);
+        eventHandler = new LoginEventHandler(viewModel, authViewModel,getContext());
+        Binding.setEventhandler(eventHandler);
         Binding.setViewModel(viewModel);
         Binding.setLifecycleOwner(this);
         viewModel.getNavigateBackToMainMenu().observe(getViewLifecycleOwner(), navigate -> {
@@ -52,6 +45,14 @@ public class LoginFragment extends Fragment {
             if (navigate != null && navigate){
                 navigateToForgotPassword();
                 viewModel.doneNavigateToForgotPassword();
+            }
+        });
+
+
+        viewModel.getNavigateToRegister().observe(getViewLifecycleOwner(), nav -> {
+            if (nav != null && nav){
+                navigateToRegister();
+                viewModel.doneNavigatingToRegister();
             }
         });
 
@@ -83,6 +84,12 @@ public class LoginFragment extends Fragment {
     private void navigateToForgotPassword() {
         requireActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, new ForgotPasswordFragment())
+                .addToBackStack(null)
+                .commit();
+    }
+    private void navigateToRegister(){
+        requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new RegisterFragment())
                 .addToBackStack(null)
                 .commit();
     }

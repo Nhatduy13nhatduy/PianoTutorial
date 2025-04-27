@@ -2,14 +2,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainmenu_container"
-    tools:context=".features.ui.MainMenu">
+    android:id="@+id/fragment_mainmenu"
+    tools:context=".features.authetication.fragments.MainMenuFragment">
 
 
     <data>
         <variable
             name="viewModel"
-            type="com.example.pianotutorial.features.ui.viewmodel.MainMenuViewModel" />
+            type="com.example.pianotutorial.features.authetication.viewmodels.MainMenuViewModel" />
+        <variable
+            name="eventHandler"
+            type="com.example.pianotutorial.features.authetication.eventhandlers.MainMenuEventHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -122,7 +125,7 @@
                 android:singleLine="true"
                 android:text="@string/lbl_dangnhap"
                 tools:text="@string/lbl_dangnhap"
-                android:onClick="@{() -> viewModel.onLoginClicked()}"/>
+                android:onClick="@{eventHandler::navigateToLogin}"/>
 
             <Button
                 android:id="@+id/dangky_btn"
@@ -135,7 +138,7 @@
                 android:gravity="center"
                 android:singleLine="true"
                 android:text="@string/lbl_dangky"
-                android:onClick="@{() -> viewModel.onRegisterClicked()}"/>
+                android:onClick="@{eventHandler::navigateToRegister}"/>
         </FrameLayout>
         <FrameLayout
             android:id="@+id/fragment_container"

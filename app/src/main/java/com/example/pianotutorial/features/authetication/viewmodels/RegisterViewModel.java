@@ -1,6 +1,4 @@
-package com.example.pianotutorial.features.ui.viewmodel;
-
-import android.view.View;
+package com.example.pianotutorial.features.authetication.viewmodels;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

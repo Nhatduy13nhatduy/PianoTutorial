@@ -57,6 +57,7 @@ public class PlayScreenActivity extends AppCompatActivity implements MidiAware, 
     private MidiManager midiManager;
     protected MidiDriver midi;
     protected MediaPlayer player;
+    private String sheetFile = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +72,7 @@ public class PlayScreenActivity extends AppCompatActivity implements MidiAware, 
 
         countdownTextView = activityPlayscreenBinding.getRoot().findViewById(R.id.countdownText);
 
+        playScreenEventHandler.onInitial();
         setupObservers();
         initializeMIDI();
 
@@ -82,6 +84,7 @@ public class PlayScreenActivity extends AppCompatActivity implements MidiAware, 
     private void setupObservers() {
         playScreenViewModel.getCurrentSheet().observe(this, currentSheet -> {
             if (currentSheet != null) {
+                sheetFile=currentSheet.getSheetFile();
                 loadMusicView(currentSheet);
             }
         });
@@ -166,7 +169,7 @@ public class PlayScreenActivity extends AppCompatActivity implements MidiAware, 
 
 
     private void updateSpeed(float speed) {
-        String fileURL = "https://firebasestorage.googleapis.com/v0/b/pianoaiapi.appspot.com/o/Midi%2Ff1d4cb7b-9e3b-445e-a3e7-f97fc78e5434_Sao_Sang.mid?alt=media&token=fb758635-1027-43cc-bbff-1a0db24177bb";
+        String fileURL = sheetFile;
 
         int speed1Res = R.drawable.white_border;
         int speed2Res = R.drawable.white_border;
@@ -319,9 +322,8 @@ public class PlayScreenActivity extends AppCompatActivity implements MidiAware, 
     private void startCountdown(Context context) {
         GlobalVariables.SPEED = Objects.requireNonNull(playScreenViewModel.getSpeed().getValue());
         startUpdatingStaff();
-        playScreenEventHandler.onInitial();
         activityPlayscreenBinding.playCircleVector.setVisibility(View.GONE); // Countdown from 3 to 1
-        playAudio("https://firebasestorage.googleapis.com/v0/b/pianoaiapi.appspot.com/o/Midi%2Ff1d4cb7b-9e3b-445e-a3e7-f97fc78e5434_Sao_Sang.mid?alt=media&token=fb758635-1027-43cc-bbff-1a0db24177bb");
+        playAudio(sheetFile);
 
 
         new CountDownTimer(3000, 1000) {

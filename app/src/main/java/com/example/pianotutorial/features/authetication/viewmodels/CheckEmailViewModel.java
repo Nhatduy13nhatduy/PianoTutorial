@@ -1,4 +1,4 @@
-package com.example.pianotutorial.features.ui.viewmodel;
+package com.example.pianotutorial.features.authetication.viewmodels;
 
 import androidx.lifecycle.ViewModel;
 
